@@ -2,6 +2,8 @@ import { Noto_Sans_TC } from "next/font/google";
 import { TabsCalc } from "@/components/sections/main-card";
 import { Github } from "lucide-react";
 import { ModeToggle } from "@/components/ui/dark-toggle";
+import Image from "next/image";
+import { AboutDialog } from "@/components/sections/about";
 
 const noto = Noto_Sans_TC();
 
@@ -13,6 +15,10 @@ export default function Home() {
           <h1 className="font-bold dark:text-w">國中教育會考計算機</h1>
           <TabsCalc />
         </main>
+        {/* Logo */}
+        <div className="flex w-full max-w-m space-x-4">
+          <Image src="/logos/cap.png" width={272 / 4} height={78 / 4} />
+        </div>
       </div>
       <div className="fixed bottom-4 right-4">
         <div className="flex w-full max-w-m items-start space-x-2">
@@ -33,9 +39,16 @@ export default function Home() {
               <Github className="h-4 w-4 opacity-0" />
             </button>
           </a>
-          <button className="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-3 rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-110">
-            <Github className="h-4 w-4" />
-          </button>
+          <AboutDialog />
+          <a
+            href="https://github.com/510208/cap-tool" // 替換為您的 GitHub 頁面 URL
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-3 rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-110">
+              <Github className="h-4 w-4" />
+            </button>
+          </a>
           <ModeToggle />
         </div>
       </div>
