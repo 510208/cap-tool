@@ -120,25 +120,25 @@ export function TabsCalc() {
   >(null);
 
   // --- 在輸入框改變時的協助函式 ---
-  const handleInputChangeEnglish = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    setter: React.Dispatch<React.SetStateAction<number>>,
-    min: number,
-    max: number
-  ) => {
-    const value = e.target.value;
-    if (value === "") {
-      setter(min);
-      return;
-    }
-    const num = parseInt(value, 10);
-    if (!isNaN(num)) {
-      // 確保數值在 min 和 max 之間
-      setter(Math.max(min, Math.min(num, max)));
-    } else {
-      setter(min); // 非數字輸入也設為最小值
-    }
-  };
+  // const handleInputChangeEnglish = (
+  //   e: React.ChangeEvent<HTMLInputElement>,
+  //   setter: React.Dispatch<React.SetStateAction<number>>,
+  //   min: number,
+  //   max: number
+  // ) => {
+  //   const value = e.target.value;
+  //   if (value === "") {
+  //     setter(min);
+  //     return;
+  //   }
+  //   const num = parseInt(value, 10);
+  //   if (!isNaN(num)) {
+  //     // 確保數值在 min 和 max 之間
+  //     setter(Math.max(min, Math.min(num, max)));
+  //   } else {
+  //     setter(min); // 非數字輸入也設為最小值
+  //   }
+  // };
   // --------------------
 
   // --- 計算邏輯 ---
