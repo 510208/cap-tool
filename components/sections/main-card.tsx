@@ -235,7 +235,7 @@ export function TabsCalc() {
                     }
                     onIncrement={() =>
                       setEnglishListeningRight((prev) =>
-                        Math.min(prev + 1, englishListeningTotal)
+                        Math.min(prev + 1, mathSelectTotal)
                       )
                     }
                     onDecrement={() =>
@@ -262,7 +262,7 @@ export function TabsCalc() {
                     }
                     onIncrement={() =>
                       setMathSelectRight((prev) =>
-                        Math.min(prev + 1, mathSelectTotal)
+                        Math.min(prev + 1, MAX_TOTAL_SELECT_QUESTIONS)
                       )
                     }
                     onDecrement={() =>
@@ -295,7 +295,7 @@ export function TabsCalc() {
                 }
                 onIncrement={() =>
                   setMathNonSelectRight((prev) =>
-                    Math.min(prev + 1, mathSelectTotal)
+                    Math.min(prev + 1, MATH_NON_SELECT_TOTAL_SCORE)
                   )
                 }
                 onDecrement={() =>
