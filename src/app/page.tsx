@@ -5,8 +5,10 @@ import { ModeToggle } from "@/components/ui/dark-toggle";
 // import Image from "next/image";
 import { AboutDialog } from "@/components/sections/about";
 import Quote from "@/components/sections/quote";
+// import { preload } from "react-dom";
+// import localFont from "next/font/local";
 
-const noto = Noto_Sans_TC();
+const noto = Noto_Sans_TC({ preload: false });
 
 export default function Home() {
   return (
