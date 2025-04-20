@@ -2,23 +2,23 @@ import { Noto_Sans_TC } from "next/font/google";
 import { TabsCalc } from "@/components/sections/main-card";
 import { Github } from "lucide-react";
 import { ModeToggle } from "@/components/ui/dark-toggle";
-import Image from "next/image";
+// import Image from "next/image";
 import { AboutDialog } from "@/components/sections/about";
+import Quote from "@/components/sections/quote";
 
 const noto = Noto_Sans_TC();
 
 export default function Home() {
   return (
     <div className={noto.className}>
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] dark:bg-gray-950">
-        <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-          <h1 className="font-bold dark:text-w">國中教育會考計算機</h1>
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gray-100 dark:bg-gray-950">
+        <main className="flex flex-col gap-[10px] row-start-2 items-center sm:items-start">
+          <h1 className="font-bold text-black dark:text-white">
+            國中教育會考計算機
+          </h1>
+          <Quote />
           <TabsCalc />
         </main>
-        {/* Logo */}
-        <div className="flex w-full max-w-m space-x-4">
-          <Image src="/logos/cap.png" width={272 / 4} height={78 / 4} />
-        </div>
       </div>
       <div className="fixed bottom-4 right-4">
         <div className="flex w-full max-w-m items-start space-x-2">

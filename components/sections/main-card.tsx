@@ -1,17 +1,15 @@
 "use client"; // This is a client component 👈🏽
 
 import { useState, useEffect } from "react"; // 引入 useEffect
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
+  // CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { NumInputWithCtrl } from "../ui/numinput"; // 確保路徑正確
@@ -197,13 +195,13 @@ export function TabsCalc() {
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger
             value="math"
-            className="dark:text-gray-200 dark:data-[state=active]:text-gray-300 dark:data-[state=active]:bg-gray-700"
+            className="text-gray-700 data-[state=active]:text-gray-200 dark:text-gray-200 dark:data-[state=active]:text-gray-300 dark:data-[state=active]:bg-gray-700"
           >
             數學
           </TabsTrigger>
           <TabsTrigger
             value="english"
-            className="dark:text-gray-200 dark:data-[state=active]:text-gray-300 dark:data-[state=active]:bg-gray-700"
+            className="text-gray-700 data-[state=active]:text-gray-200 dark:text-gray-200 dark:data-[state=active]:text-gray-300 dark:data-[state=active]:bg-gray-700"
           >
             英語
           </TabsTrigger>
@@ -235,6 +233,16 @@ export function TabsCalc() {
                         mathSelectTotal
                       )
                     }
+                    onIncrement={() =>
+                      setEnglishListeningRight((prev) =>
+                        Math.min(prev + 1, englishListeningTotal)
+                      )
+                    }
+                    onDecrement={() =>
+                      setEnglishListeningRight((prev) =>
+                        Math.max(prev - 1, MIN_SCORE)
+                      )
+                    }
                   />
                 </div>
                 <div className="flex-1">
@@ -252,6 +260,16 @@ export function TabsCalc() {
                         MAX_TOTAL_SELECT_QUESTIONS
                       )
                     }
+                    onIncrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.min(prev + 1, mathSelectTotal)
+                      )
+                    }
+                    onDecrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.max(prev - 1, MIN_SCORE)
+                      )
+                    }
                   />
                 </div>
               </div>
@@ -259,7 +277,7 @@ export function TabsCalc() {
               {/* 數學非選 */}
               {/* 2. 移除多餘的非選總分輸入框和外層 flex 容器 */}
               <NumInputWithCtrl
-                id="math-non-select-right"
+                id="english-listening-right"
                 // 更新 Label 提示滿分
                 label={`數學非選得分 (滿分 ${MATH_NON_SELECT_TOTAL_SCORE})`}
                 value={mathNonSelectRight}
@@ -274,6 +292,14 @@ export function TabsCalc() {
                     // 使用非選總分作為最大值
                     MATH_NON_SELECT_TOTAL_SCORE
                   )
+                }
+                onIncrement={() =>
+                  setMathNonSelectRight((prev) =>
+                    Math.min(prev + 1, mathSelectTotal)
+                  )
+                }
+                onDecrement={() =>
+                  setMathNonSelectRight((prev) => Math.max(prev - 1, MIN_SCORE))
                 }
               />
             </CardContent>
@@ -322,7 +348,7 @@ export function TabsCalc() {
               <div className="flex w-full max-w-m items-start space-x-4">
                 <div className="flex-1">
                   <NumInputWithCtrl
-                    id="math-select-right"
+                    id="english-reading-right"
                     label="英文閱讀題答對題數"
                     value={englishWritingRight}
                     min={MIN_SCORE}
@@ -335,6 +361,16 @@ export function TabsCalc() {
                         MIN_SCORE,
                         // 傳遞動態的最大值
                         englishWritingTotal
+                      )
+                    }
+                    onIncrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.min(prev + 1, mathSelectTotal)
+                      )
+                    }
+                    onDecrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.max(prev - 1, MIN_SCORE)
                       )
                     }
                   />
@@ -352,6 +388,16 @@ export function TabsCalc() {
                         setEnglishWritingTotal,
                         1, // 最小值設為 1
                         MAX_TOTAL_SELECT_QUESTIONS
+                      )
+                    }
+                    onIncrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.min(prev + 1, mathSelectTotal)
+                      )
+                    }
+                    onDecrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.max(prev - 1, MIN_SCORE)
                       )
                     }
                   />
@@ -378,6 +424,16 @@ export function TabsCalc() {
                         englishListeningTotal
                       )
                     }
+                    onIncrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.min(prev + 1, mathSelectTotal)
+                      )
+                    }
+                    onDecrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.max(prev - 1, MIN_SCORE)
+                      )
+                    }
                   />
                 </div>
                 <div className="flex-1">
@@ -396,6 +452,16 @@ export function TabsCalc() {
                         MIN_SCORE,
                         // 使用非選總分作為最大值
                         ENGLISH_LISTENING_TOTAL_COUNT
+                      )
+                    }
+                    onIncrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.min(prev + 1, mathSelectTotal)
+                      )
+                    }
+                    onDecrement={() =>
+                      setMathSelectRight((prev) =>
+                        Math.max(prev - 1, MIN_SCORE)
                       )
                     }
                   />

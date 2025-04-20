@@ -17,6 +17,7 @@ interface NumberInputWithControlsProps {
   inputClassName?: string; // Optional class for the input
   buttonSize?: "default" | "sm" | "lg" | "icon"; // Optional button size
   iconSize?: string; // Optional icon size class (e.g., "h-4 w-4")
+  disabled?: boolean; // Optional disabled state for the input
 }
 
 export const NumInputWithCtrl: React.FC<NumberInputWithControlsProps> = ({
