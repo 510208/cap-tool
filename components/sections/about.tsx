@@ -97,7 +97,7 @@ export function AboutDialog() {
           <div className="flex w-full max-w-m space-x-4">
             {/* 國中教育會考 */}
             <a
-              href="https://www.cap.edu.tw/"
+              href="https://cap.rcpet.edu.tw/"
               target="_blank"
               rel="noopener noreferrer"
             >
